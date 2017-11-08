@@ -1,0 +1,3 @@
+FROM library/golang:1.6-alpine
+
+RUN apk add --no-cache inotify-tools
