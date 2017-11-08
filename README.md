@@ -31,17 +31,34 @@ I have found that using [Docker](https://www.docker.com/) helps me keep my
 development environment clean and portable. Here is an example of how I might
 set up an environment dedicated to go through these koans.
 
-Install/Setup:
+### Setup
 
-```shell
-luser@lolcathost:~ $ docker-machine create -d virtualbox golang
-luser@lolcathost:~ $ eval $(docker-machine env golang)
-luser@lolcathost:~ $ docker pull library/golang:1.6.0-alpine
-luser@lolcathost:~ $ docker run --rm -ti -v "$PWD":/usr/src/koans -w /usr/src/koans golang:1.6.0-alpine /bin/sh
+Install [Docker for Mac](https://https://www.docker.com/docker-mac) or [Docker for Windows](https://www.docker.com/docker-windows) depending on your platform. Then:
+
+```
+$ docker-compose build
+```
+will download and set up a golang image.
+
+### Running
+
+To automatically run `go test` every time a *.go file is changed:
+
+```
+$ docker-compose run --rm gotest
 ```
 
-Now with an interactive shell inside of a minimal container you may iterate
-through the same steps to enlightenment described above.
+To get the documentation server on [localhost:8080](http://localhost:8080)
+
+```
+$ docker-compose up godoc
+```
+
+If you want an interactive shell inside of a minimal container:
+
+```
+$ docker-compose run --rm shell
+```
 
 ## Helpful References
 
