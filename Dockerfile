@@ -1,3 +1,4 @@
-FROM library/golang:1.6-alpine
+FROM library/golang:alpine
 
-RUN apk add --no-cache inotify-tools
+RUN apk add --no-cache inotify-tools git
+RUN go get golang.org/x/tools/cmd/godoc

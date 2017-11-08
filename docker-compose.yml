@@ -6,3 +6,14 @@ services:
     - .:/go/src/koans
     command: /bin/sh
     working_dir: /go/src/koans
+  gotest:
+    build: .
+    volumes:
+    - .:/go/src/koans
+    command: ./gotest.sh
+    working_dir: /go/src/koans
+  godoc:
+    build: .
+    command: godoc -http=:8080
+    ports:
+    - "8080:8080"
