@@ -1,0 +1,8 @@
+version: "3"
+services:
+  shell:
+    image: library/golang:1.6-alpine
+    volumes:
+    - .:/go/src/koans
+    command: /bin/sh
+    working_dir: /go/src/koans
